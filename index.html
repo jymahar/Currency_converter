@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Currency converter</title>
+  </head>
+  <body>
+    <h2>Add New Currency Rate</h2>
+    <form id="addRateForm">
+      <label for="fromCurrency">From Currency:</label>
+      <input type="text" id="fromCurrency" required />
+
+      <label for="toCurrency">To Currency:</label>
+      <input type="text" id="toCurrency" required />
+
+      <label for="rate">Exchange Rate:</label>
+      <input type="number" id="rate" step="0.0001" required />
+
+      <button type="submit">Add Rate</button>
+    </form>
+    <h2>Convert Currency</h2>
+    <form id="convertRate">
+      <label for="fromCountry">From country:</label>
+      <input type="text" id="fromCountry" required />
+
+      <label for="toCountry">To country:</label>
+      <input type="text" id="toCountry" required />
+
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" min="1" step="1" required />
+
+      <button type="submit">Convert</button>
+    </form>
+    <div id="finalAmount" class="text-center">
+      <!-- Display the converted amount -->
+      <h2>
+        Converted Amount :
+        <span class="finalValue" style="color: blue"> </span>
+      </h2>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
