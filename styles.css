@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #9873fe;
+}
+form {
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+#fromCurrency,
+#toCurrency,
+#fromCountry,
+#toCountry {
+  margin-right: 10px;
+  background-color: #9873fe;
+  color: white;
+}
+
+#rate {
+  margin-right: 10px;
+  width: 80px;
+}
+
+#container {
+  margin: 30px;
+  margin-left: 20%;
+  padding: 40px;
+  border: solid;
+  width: fit-content;
+  border-radius: 15px;
+  background-color: white;
+}
+select option {
+  background-color: #ffff;
+  color: black;
+}
