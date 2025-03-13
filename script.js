@@ -208,6 +208,11 @@ document.getElementById("convertRate").addEventListener("submit", (event) => {
   let finalValue = document.querySelector(".finalValue");
   const amount = parseFloat(document.getElementById("amount").value);
   let exchangeRate;
+  if (currencyDataList.length == 0) {
+    finalValue.innerHTML = "No Exchange rate is not found.Please add new rate";
+    finalValue.style = "font-size:15px";
+    return;
+  }
   for (let i = 0; i < currencyDataList.length; i++) {
     if (currencyDataList[i].base === from) {
       let rateList = currencyDataList[i].rates;
@@ -217,6 +222,9 @@ document.getElementById("convertRate").addEventListener("submit", (event) => {
       let rateList = currencyDataList[i].rates;
       exchangeRate = rateList[from];
       finalValue.innerHTML = (amount / exchangeRate).toFixed(2);
+    } else {
+      finalValue.innerHTML = "Exchange rate is not found. Please add new rate";
+      finalValue.style = "font-size:15px";
     }
   }
 });
