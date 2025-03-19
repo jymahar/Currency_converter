@@ -53,7 +53,20 @@
         <!-- reset button -->
         <button id="reset">Reset</button>
       </div>
+      <h2>Currency Rate List</h2>
+      <table id="currencyRateTable">
+        <thead>
+          <tr>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th>Exchange Rate</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="currencyRateList"></tbody>
+      </table>      
       <form id="searchRate">
+        <h2>Search Rate</h2>
         <label for="fromCountrySearch">From currency:</label>
         <input type="text" id="fromCountrySearch" />
         <label for="toCountrySearch">To currency:</label>

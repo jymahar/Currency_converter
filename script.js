@@ -194,3 +194,29 @@ setMarketAnnouncements();
 
 // Update status every minute
 setInterval(checkMarketStatus, 60000);
+
+function displayCurrencyRates() {
+  const rateListContainer = document.getElementById("currencyRateList");
+  rateListContainer.innerHTML = ""; // Clear existing items
+
+  currencyDataList.forEach((currency) => {
+    Object.entries(currency.rates).forEach(([toCurrency, rate]) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${currency.base}</td>
+        <td>${toCurrency}</td>
+        <td>${rate}</td>
+        <td>${currency.date}</td>
+      `;
+      rateListContainer.appendChild(row);
+    });
+  });
+}
+
+// Call display function whenever a new rate is added
+document.getElementById("addRateForm").addEventListener("submit", () => {
+  displayCurrencyRates();
+});
+
+// Initialize the list on page load
+document.addEventListener("DOMContentLoaded", displayCurrencyRates);
