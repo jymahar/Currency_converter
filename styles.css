@@ -13,7 +13,10 @@ h1 {
 #fromCurrency,
 #toCurrency,
 #fromCountry,
-#toCountry {
+#toCountry,
+#fromCountrySearch,
+#toCountrySearch {
+  width: 80px;
   margin-right: 10px;
   background-color: #9873fe;
   color: white;
@@ -21,19 +24,29 @@ h1 {
 
 #rate {
   margin-right: 10px;
-  width: 80px;
+  width: 50px;
 }
 
 #container {
+  display: flex;
+  flex-direction: column;
   margin: 30px;
   margin-left: 20%;
   padding: 40px;
   border: solid;
-  width: fit-content;
+  width: 60%;
   border-radius: 15px;
   background-color: white;
 }
 select option {
   background-color: #ffff;
   color: black;
+}
+
+#searchRate {
+  margin-top: 30px;
+}
+
+#marketStatus {
+  text-align: center;
 }
