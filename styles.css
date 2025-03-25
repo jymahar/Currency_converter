@@ -1,0 +1,74 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #9873fe;
+}
+form {
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+#fromCurrency,
+#toCurrency,
+#fromCountry,
+#toCountry,
+#fromCountrySearch,
+#toCountrySearch {
+  width: 80px;
+  margin-right: 10px;
+  background-color: #9873fe;
+  color: white;
+}
+
+#rate {
+  margin-right: 10px;
+  width: 50px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  margin-left: 20%;
+  padding: 40px;
+  border: solid;
+  width: 60%;
+  border-radius: 15px;
+  background-color: white;
+}
+select option {
+  background-color: #ffff;
+  color: black;
+}
+
+#searchRate {
+  margin-top: 30px;
+}
+
+#marketStatus {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #9873fe;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
