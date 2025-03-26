@@ -1,5 +1,8 @@
 let currencyDataList = [];
 
+const api =
+  "https://raw.githubusercontent.com/jymahar/jymahar.github.io/refs/heads/main/currencyData.json";
+
 let fromList = [];
 let toList = [];
 
@@ -22,6 +25,7 @@ document.getElementById("addRateForm").addEventListener("submit", (event) => {
         date: new Date().toISOString().split("T")[0],
         rates: {},
       };
+      console.log(currencyRateObj);
       currencyDataList.push(currencyRateObj);
     }
     currencyRateObj.rates[to] = rate;
@@ -90,7 +94,7 @@ document.getElementById("convertRate").addEventListener("submit", (event) => {
     if (currencyDataList[i].base === from) {
       let rateList = currencyDataList[i].rates;
       exchangeRate = rateList[to];
-      if (exchangeRate == undefined) {
+      if (!exchangeRate) {
         finalValue.innerHTML =
           "Exchange rate is not found. Please add new rate";
         finalValue.style = "font-size:15px";
@@ -220,3 +224,17 @@ document.getElementById("addRateForm").addEventListener("submit", () => {
 
 // Initialize the list on page load
 document.addEventListener("DOMContentLoaded", displayCurrencyRates);
+
+fetch(api)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+    for (let i = 0; i < data.length; i++) {
+      currencyDataList.push(data[i]);
+      if (!fromList.includes(data[i].base)) {
+        fromList.push(data[i].base);
+        updateCurrencyOptions(data[i].base);
+        toList.push(data[i].base);
+      }
+    }
+  });
