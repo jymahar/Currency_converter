@@ -10,12 +10,7 @@ form {
 h1 {
   text-align: center;
 }
-#fromCurrency,
-#toCurrency,
-#fromCountry,
-#toCountry,
-#fromCountrySearch,
-#toCountrySearch {
+.fromToSelector {
   width: 80px;
   margin-right: 10px;
   background-color: #9873fe;
@@ -28,8 +23,6 @@ h1 {
 }
 
 #container {
-  display: flex;
-  flex-direction: column;
   margin: 30px;
   margin-left: 20%;
   padding: 40px;
