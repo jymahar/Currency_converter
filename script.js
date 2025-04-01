@@ -122,6 +122,10 @@ function searchCurrencyRate(from, to) {
   from = from.toUpperCase().trim();
   to = to.toUpperCase().trim();
   let results = [];
+  if (!from && !to) {
+    console.info("From and To currency input is empty");
+    return "Please enter From or To currency.";
+  }
 
   currencyDataList.forEach((data) => {
     const baseCurrency = data.base;
@@ -129,7 +133,7 @@ function searchCurrencyRate(from, to) {
     // Check if query matches base currency
     if (baseCurrency.includes(from)) {
       Object.entries(data.rates).forEach(([toCurrency, rate]) => {
-        if (to == toCurrency) {
+        if (to == toCurrency || !to) {
           results.push(`${baseCurrency} → ${toCurrency}: ${rate}`);
         }
       });
@@ -222,13 +226,10 @@ document.getElementById("addRateForm").addEventListener("submit", () => {
   displayCurrencyRates();
 });
 
-// Initialize the list on page load
-document.addEventListener("DOMContentLoaded", displayCurrencyRates);
-
-fetch(api)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
+async function fetchCurrencyData() {
+  try {
+    const result = await fetch(api);
+    const data = await result.json();
     for (let i = 0; i < data.length; i++) {
       currencyDataList.push(data[i]);
       if (!fromList.includes(data[i].base)) {
@@ -237,4 +238,10 @@ fetch(api)
         toList.push(data[i].base);
       }
     }
-  });
+    displayCurrencyRates();
+  } catch (err) {
+    throw "Error found fetching currency data";
+  }
+}
+
+fetchCurrencyData();
