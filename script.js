@@ -134,7 +134,7 @@ function searchCurrencyRate(from, to) {
     if (baseCurrency.includes(from)) {
       Object.entries(data.rates).forEach(([toCurrency, rate]) => {
         if (to == toCurrency || !to) {
-          results.push(`${baseCurrency} → ${toCurrency}: ${rate}`);
+          results.push(` 1 ${baseCurrency} = ${rate} ${toCurrency}`);
         }
       });
     }
@@ -151,6 +151,11 @@ document.getElementById("searchRate").addEventListener("submit", (event) => {
     from,
     to
   );
+});
+
+document.getElementById("searchRate").addEventListener("reset", (event) => {
+  document.getElementById("searchRate").reset();
+  document.querySelector(".searchResults").innerHTML = "";  
 });
 
 function checkMarketStatus() {

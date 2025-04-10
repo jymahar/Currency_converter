@@ -10,20 +10,20 @@
     <h1>Currency Converter</h1>
     <p id="marketStatus"></p>
     <div id="container">
-      <h2>Add New Currency Rate</h2>
+      <h3>Add New Currency Rate</h3>
       <form id="addRateForm">
         <label for="fromCurrency">From Currency:</label>
-        <input type="text" class="fromToSelector" id="fromCurrency" required></input>
+        <input type="text" class="fromToSelector" id="fromCurrency" required  placeholder="ex.DKK"></input>
 
         <label for="toCurrency">To Currency:</label>
-        <input type="text" class="fromToSelector" id="toCurrency" required></input>
+        <input type="text" class="fromToSelector" id="toCurrency" required placeholder="ex.EURO"></input>
         <label for="rate">Exchange Rate:</label>
         <input type="number" id="rate" min="0.0000" step="0.0001" required />
 
         <button type="submit">Add Rate</button>
       </form>
 
-      <h2>Convert Currency</h2>
+      <h3>Convert Currency</h3>
       <form id="convertRate">
         <label for="fromCountry">From country:</label>
         <select  id="fromCountry" class="fromToSelector" required>
@@ -44,16 +44,16 @@
       </form>
 
       <!-- Display the converted amount -->
-      <h2>
+      <h3>
         Converted Amount :
         <span class="finalValue" style="color: blue"> </span>
-      </h2>
+      </h3>
 
       <div>
         <!-- reset button -->
         <button id="reset">Reset</button>
       </div>
-      <h2>Currency Rate List</h2>
+      <h3>Currency Rate List</h3>
       <table id="currencyRateTable">
         <thead>
           <tr>
@@ -66,12 +66,13 @@
         <tbody id="currencyRateList"></tbody>
       </table>      
       <form id="searchRate">
-        <h2>Search Rate</h2>
+        <h3>Search Rate</h3>
         <label for="fromCountrySearch">From currency:</label>
         <input type="text" id="fromCountrySearch" class="fromToSelector" />
         <label for="toCountrySearch">To currency:</label>
         <input type="text" id="toCountrySearch"  class="fromToSelector" />
         <button type="submit">Search</button>
+        <button type="reset">Clear</button>
       </form>
       <span class="searchResults" style="color: blue"> </span>
     </div>
