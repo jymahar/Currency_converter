@@ -100,11 +100,13 @@ document.getElementById("convertRate").addEventListener("submit", (event) => {
         finalValue.style = "font-size:15px";
       } else {
         finalValue.innerHTML = (exchangeRate * amount).toFixed(2);
+        break;
       }
     } else if (currencyDataList[i].base == to) {
       let rateList = currencyDataList[i].rates;
       exchangeRate = rateList[from];
       finalValue.innerHTML = (amount / exchangeRate).toFixed(2);
+      break;
     } else {
       finalValue.innerHTML = "Exchange rate is not found. Please add new rate";
       finalValue.style = "font-size:15px";
@@ -155,7 +157,7 @@ document.getElementById("searchRate").addEventListener("submit", (event) => {
 
 document.getElementById("searchRate").addEventListener("reset", (event) => {
   document.getElementById("searchRate").reset();
-  document.querySelector(".searchResults").innerHTML = "";  
+  document.querySelector(".searchResults").innerHTML = "";
 });
 
 function checkMarketStatus() {
